@@ -3,15 +3,26 @@ from django.http import HttpResponse
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-# Create your views here.
+
+# We need to have this set of models to tokenize our sentences.
+try:
+    nltk.data.find('tokenizers/punkt')
+    print("Present")
+except LookupError:
+    print("Aquiring Models")
+    nltk.download('punkt')
+    
 
 def index(request):
-    return HttpResponse("Test")
+    message = 'sdsdsdsdsd'
+    return render(request, "Email_Sentiment/index.html", {'message': message})
 
-# def sentence_analyzer(request):
+def analyze(request):
 #     if request.method == "POST":
 # TODO: Return OVERALL sentiment analysis (Positive, Negative, Compound, sarcasm)
 # TODO: Return sentence-by-sentence analysis for sarcasm + Positivity/Negativy
 # TODO: Define some classes to define the level of positivity and sarcasm.
+
 #         return JsonResponse({"": }, status=200)
+    pass
 
