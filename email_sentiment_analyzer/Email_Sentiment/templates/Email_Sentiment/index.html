@@ -2,16 +2,31 @@
 {% block title %}Sent it before you Send it {% endblock %}
 
 {% block body %}
+{% csrf_token %}
 <h1 class="textCenter">Sent It:</h1>
 <h3 class="textCenter">Email and Messaging Sarcasm and Sentiment Analyser</h3>
-<div class="center container">
-    <div class="return">
-        <p class="preSend">Your analysed text will appear here...</p>
+<div class="center row">
+    <div class="center container">
+        <div class="return" id="return">
+            <p class="preSend" id="prereturn">Your analysed text will appear here...</p>
+        </div>
+        <textarea class="text" placeholder="Enter the text you want to check here" id="textInput"></textarea>
+        <div class="controls">
+            <button name="submit" id="submit">Check It</button>
+            <button name="clear" id="clear">Clear It</button>
+        </div>
     </div>
-    <textarea class="text" placeholder="Enter the text you want to check here"></textarea>
-    <div class="controls">
-        <button name="submit" id="submit">Check It</button>
-        <button name="clear" id="clear">Clear It</button></div>
+        <div class="outputRankings textCenter">
+            <div class="ranking ">
+                <p>Sentiment:</p>
+                <p class="sentimentRank">N/A</p>
+            </div>
+            
+            <div class="ranking">
+                <p>Sarcasm:</p>
+                <p class="sentimentRank">N/A</p>
+            </div>
+            
     </div>
 </div>
 

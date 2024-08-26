@@ -1,3 +1,43 @@
+.analysedSpan {
+    border: 1px dotted black;
+}
+
+.Top { 
+    background-color: #01d2af;
+}
+
+.Top1 { 
+    background-color: #01d251;
+}
+
+.Top2 {
+    background-color: #24d201;
+}
+
+.Top3 { 
+    background-color: #66d201;
+}
+
+.Neutral {
+    background-color: #a5d201;
+}
+
+.worstm3 {
+    background-color: #c4d201;
+}
+
+.Worstm2 {
+    background-color: #d2a101;
+}
+
+.Worstm1 {
+    background-color: #d24e01;
+}
+
+.Worst {
+    background-color: #D20103;
+}
+
 body {
     box-sizing: border-box;
 }
@@ -18,6 +58,29 @@ div {
     text-align: center;
 }
 
+.row {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.outputRankings {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 75px;
+    height: 60vh;
+    width: 3%;
+    border-radius: 10px;
+    background-color:rgb(80, 80, 80, 0.5)
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -26,7 +89,7 @@ div {
     justify-content: space-around;
     margin-top: 5vh;
     height: 60vh;
-    width: 60vw;
+    width: 55vw;
     border-radius: 10px;
     background-color:rgb(80, 80, 80, 0.5)
 }
