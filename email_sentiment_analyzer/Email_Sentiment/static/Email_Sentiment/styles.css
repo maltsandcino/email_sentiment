@@ -1,6 +1,9 @@
 .analysedSpan {
     border: 1px dotted black;
 }
+.AbsoluteTop {
+    background-color: #017ed2;
+}
 
 .Top { 
     background-color: #01d2af;
@@ -36,6 +39,10 @@
 
 .Worst {
     background-color: #D20103;
+}
+
+.ReallyWorst {
+    background-color: #d20105c4;
 }
 
 body {

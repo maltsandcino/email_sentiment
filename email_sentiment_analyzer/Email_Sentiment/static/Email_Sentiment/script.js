@@ -55,6 +55,10 @@ async function submit_data(){
         document.getElementById("return").appendChild(analysed_sentences)
 
         document.getElementById("submit").disabled = true;
+
+        let overall_sentiment = result.overall_sentiment
+
+        document.getElementById("overall_sentiment").innerHTML = overall_sentiment
         
     }
     catch (error) {
