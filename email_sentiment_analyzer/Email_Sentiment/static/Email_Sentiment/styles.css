@@ -5,44 +5,147 @@
     background-color: #017ed2;
 }
 
+.color1 {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #017ed2;
+
+}
+
 .Top { 
     background-color: #01d2af;
+}
+
+.color2 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #01d2af;
+
 }
 
 .Top1 { 
     background-color: #01d251;
 }
 
+.color3 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #01d251;
+
+}
+
 .Top2 {
     background-color: #24d201;
+}
+
+.color4 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #24d201;
+
 }
 
 .Top3 { 
     background-color: #66d201;
 }
 
+.color5 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #66d201;
+
+}
+
 .Neutral {
     background-color: #a5d201;
+}
+
+.color6 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #a5d201;
+
 }
 
 .worstm3 {
     background-color: #c4d201;
 }
 
+.color7 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #c4d201;
+
+}
+
 .Worstm2 {
     background-color: #d2a101;
+}
+
+.color8 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #d2a101;
+
 }
 
 .Worstm1 {
     background-color: #d24e01;
 }
 
+.color9 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #d24e01;
+
+}
+
 .Worst {
     background-color: #D20103;
 }
 
+.color10 {
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #D20103;
+
+}
+
 .ReallyWorst {
     background-color: #d20105c4;
+}
+
+.color11 {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    flex: auto;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: #d20105c4;
+
 }
 
 body {
@@ -133,4 +236,25 @@ textarea::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-top: 10px;
+    height: 15vh;
+    width: 55vw;
+    border-radius: 10px;
+    background-color:rgb(80, 80, 80, 0.5)
+}
+
+.legendbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
 }
