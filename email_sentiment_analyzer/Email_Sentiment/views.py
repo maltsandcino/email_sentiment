@@ -96,16 +96,17 @@ def analyze(request):
 
         sarcasm_predictions = copy.deepcopy(token_dict)
 
-        # The model is only about 70% accurate, and I want to set a fairly high threshold for considering something possible sarcastic.
+        # The model is only about 70% accurate, and I want to set a fairly high threshold for considering something possibly sarcastic.
         total_sarcastic = 0
-
+        for_index = list(sarcasm_predictions.keys())
         for sentence, prediction in zip(tokens, predictions):
             if prediction > 0.7:
-                sarcasm_predictions[sentence] = [sarcasm_predictions[sentence], "Sarcastic"]
+                sarcasm_predictions[sentence] = [sarcasm_predictions[sentence], "Sarcastic", numeric_values[for_index.index(sentence)]]
                 total_sarcastic += 1                
             else:
-                sarcasm_predictions[sentence] = [sarcasm_predictions[sentence], "NotSarcastic"]
+                sarcasm_predictions[sentence] = [sarcasm_predictions[sentence], "NotSarcastic", numeric_values[for_index.index(sentence)]]
         
+        print(sarcasm_predictions)
         if total_sarcastic == 1:
             total_sarcastic = f"{total_sarcastic} instance"
         else:

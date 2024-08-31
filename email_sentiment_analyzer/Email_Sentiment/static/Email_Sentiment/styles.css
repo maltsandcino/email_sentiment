@@ -1,6 +1,43 @@
 .analysedSpan {
+    
+    position: relative;
+    display: inline-block;
     border: 1px dotted black;
+    white-space: normal;
+    width: fit-content;
+    
 }
+
+      
+.analysedSpan .hide {
+    white-space: pre-wrap;
+    position: absolute;
+    display: flex;
+    visibility: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 10px;
+    width: 200px;
+    max-width: 200px;
+    height: fit-content;
+    overflow: auto;
+    background-color: rgb(35, 58, 77);
+    color: whitesmoke;
+    text-align: left;
+    border: 1px solid grey;
+    border-radius: 6px;    
+    z-index: 1;
+    top: 100%;
+    left: 20%;
+    margin-right: -60px;
+}
+
+.analysedSpan:hover .hide {
+    visibility: visible;
+}
+
+
 .AbsoluteTop {
     background-color: #017ed2;
 }
@@ -232,7 +269,13 @@ textarea::placeholder {
     background-color:rgb(27, 27, 27);
     height: 25vh;
     width: 90%;
-    padding: 5px;
+    overflow-y: auto;
+    overflow-x: visible;
+}
+
+.returned {
+    overflow-x: visible;
+    flex-wrap: wrap;
 }
 
 .preSend {

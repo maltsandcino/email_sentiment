@@ -40,11 +40,18 @@ async function submit_data(){
           
         for (const [key, value] of Object.entries(sentences)) {
             const span = document.createElement("span");
-            span.textContent = `${key}`
-            console.log(value[0])
-            console.log(value[1])
-            span.classList.add(value[0], value[1], "analysedSpan")
-            analysed_sentences.appendChild(span) 
+            // const hoverspan = document.createElement("span");
+            span.innerHTML = `${key}`;
+            var sarcastic_note = "No";
+            if(value[1] === "Sarcastic"){
+                sarcastic_note = "Yes"
+            }
+            span.innerHTML += `<span class="hide"><p>Sentiment: ${value[2]}</p><p>Sarcastic: ${sarcastic_note}</p></span>`
+            console.log(value[1]);
+            span.classList.add(value[0], value[1], "analysedSpan");
+            // hoverspan.classList.add("hide");
+            analysed_sentences.appendChild(span);
+            // analysed_sentences.appendChild(hoverspan);
         }
 
         if(document.getElementById("prereturn")){
