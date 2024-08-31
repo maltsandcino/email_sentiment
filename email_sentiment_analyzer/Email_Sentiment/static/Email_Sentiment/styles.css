@@ -16,6 +16,16 @@
 
 }
 
+.Sarcastic {
+    text-decoration-line: underline;
+    text-decoration-color: red;  
+    text-decoration-style: wavy;  
+}
+
+.NotSarcastic {
+    text-decoration: none;
+}
+
 .Top { 
     background-color: #01d2af;
 }

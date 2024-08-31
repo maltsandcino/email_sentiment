@@ -2,8 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 import json
 import nltk
-
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import tensorflow as tf
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import pickle
+import os
+import copy
+
+with open('Email_Sentiment\\assets\\tokenize.pickle', 'rb') as handle:
+    tokenizer = pickle.load(handle)
+
+model = tf.keras.models.load_model('Email_Sentiment\\assets\\model.keras')
+
 nltk.download('vader_lexicon')
 
 class_dict = {
@@ -38,6 +49,8 @@ def analyze(request):
         data = json.loads(request.body)
         text_to_analyze = data.get("data")
         
+        ##We first are looking at the sentiment
+
         tokens = nltk.tokenize.sent_tokenize(text_to_analyze)
         analyzer = SentimentIntensityAnalyzer()
         
@@ -55,28 +68,48 @@ def analyze(request):
                 else:
                     value = level
                     break
-
             value = class_dict[value]
             token_values.append(value)
         
-        overall_sentiment = (sum(numeric_values) / len(numeric_values)) * 10
+        # Getting an overall reading of the submitted text by looking at the average compound value:
 
-        print(overall_sentiment)
+        overall_sentiment = (sum(numeric_values) / len(numeric_values)) * 10
 
         if overall_sentiment < 0:
             overall_sentiment = f'{abs(overall_sentiment):.1f}% Negative'
         else:
             overall_sentiment = f'{abs(overall_sentiment):.1f}% Positive'
         
-        print(overall_sentiment)
-        
-        
-
-
         token_dict = dict(zip(tokens, token_values))
 
+        #Below we are running the same data though the sarcasm model
 
-        print(token_dict)
+        max_length = 100
+        trunc_type='post'
+        padding_type='post'
+
+        sequences = tokenizer.texts_to_sequences(tokens)
+        padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+        predictions = model.predict(padded)
+
+        #During development, I want to keep these separate for data safety and debugging later.
+
+        sarcasm_predictions = copy.deepcopy(token_dict)
+
+        # The model is only about 70% accurate, and I want to set a fairly high threshold for considering something possible sarcastic.
+        total_sarcastic = 0
+
+        for sentence, prediction in zip(tokens, predictions):
+            if prediction > 0.7:
+                sarcasm_predictions[sentence] = [sarcasm_predictions[sentence], "Sarcastic"]
+                total_sarcastic += 1                
+            else:
+                sarcasm_predictions[sentence] = [sarcasm_predictions[sentence], "NotSarcastic"]
+        
+        if total_sarcastic == 1:
+            total_sarcastic = f"{total_sarcastic} instance"
+        else:
+            total_sarcastic = f"{total_sarcastic} instances"
        
         # print(pol_scores)
         
@@ -86,6 +119,6 @@ def analyze(request):
 # TODO: Return sentence-by-sentence analysis for sarcasm + Positivity/Negativy
 # TODO: Define some classes to define the level of positivity and sarcasm.
 
-        return JsonResponse({"sentences": token_dict, "overall_sentiment": overall_sentiment}, status=200)
+        return JsonResponse({"sentences": sarcasm_predictions, "overall_sentiment": overall_sentiment, "overall_sarcastic": total_sarcastic}, status=200)
     
 

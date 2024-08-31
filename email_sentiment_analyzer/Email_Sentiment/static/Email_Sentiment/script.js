@@ -32,6 +32,8 @@ async function submit_data(){
     try {const result = await response.json()
      
         let sentences = result.sentences;
+        let overall_sentiment = result.overall_sentiment
+        let overall_sarcastic = result.overall_sarcastic
 
         let analysed_sentences = document.createElement("p")
         analysed_sentences.id = "returned"
@@ -39,8 +41,9 @@ async function submit_data(){
         for (const [key, value] of Object.entries(sentences)) {
             const span = document.createElement("span");
             span.textContent = `${key}`
-
-            span.classList.add(value, "analysedSpan")
+            console.log(value[0])
+            console.log(value[1])
+            span.classList.add(value[0], value[1], "analysedSpan")
             analysed_sentences.appendChild(span) 
         }
 
@@ -56,9 +59,8 @@ async function submit_data(){
 
         document.getElementById("submit").disabled = true;
 
-        let overall_sentiment = result.overall_sentiment
-
         document.getElementById("overall_sentiment").innerHTML = overall_sentiment
+        document.getElementById("overall_sarcasm").innerHTML = overall_sarcastic
         
     }
     catch (error) {
