@@ -1,4 +1,4 @@
-#### Sentiment and Sarcasm Analyzer
+# Sentiment and Sarcasm Analyzer
 
 ## Rationale:
 
