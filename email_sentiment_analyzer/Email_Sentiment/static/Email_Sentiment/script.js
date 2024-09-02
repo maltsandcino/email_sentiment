@@ -7,6 +7,7 @@ addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("textInput").addEventListener("keydown", () => {
             document.getElementById("submit").disabled = false;
         })
+    document.getElementById("clear").addEventListener("click", () => {clear_data()})
 
 })
 
@@ -74,4 +75,17 @@ async function submit_data(){
        
         console.log("error")
     }
+}
+
+function clear_data(){
+    document.getElementById("overall_sentiment").innerHTML = "N/A";
+        document.getElementById("overall_sarcasm").innerHTML = "N/A";
+        document.getElementById("submit").disabled = false;
+        document.getElementById("textInput").value = "";
+        place_holder = document.createElement("p");
+        place_holder.id = "prereturn";
+        place_holder.classList.add("preSend");
+        place_holder.innerHTML = "Your analysed text will appear here...";
+        document.getElementById("return").innerHTML = "";
+        document.getElementById("return").appendChild(place_holder);
 }

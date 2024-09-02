@@ -41,8 +41,10 @@ except LookupError:
     
 
 def index(request):
-    message = 'sdsdsdsdsd'
-    return render(request, "Email_Sentiment/index.html", {'message': message})
+    nums = []
+    for i in range(1,12):
+        nums.append(i)
+    return render(request, "Email_Sentiment/index.html", {'nums': nums})
 
 def analyze(request):
     if request.method == "POST":

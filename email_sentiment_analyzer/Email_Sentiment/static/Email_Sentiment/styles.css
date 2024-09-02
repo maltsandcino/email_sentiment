@@ -1,3 +1,4 @@
+
 .analysedSpan {
     
     position: relative;
@@ -8,8 +9,16 @@
     
 }
 
+.analysedSpan:hover {
+    font-weight: bolder;
+}
+
+.hide {
+    z-index: 2;
+}
       
 .analysedSpan .hide {
+    overflow: hidden;
     white-space: pre-wrap;
     position: absolute;
     display: flex;
@@ -27,7 +36,7 @@
     text-align: left;
     border: 1px solid grey;
     border-radius: 6px;    
-    z-index: 1;
+    z-index: 2;
     top: 100%;
     left: 20%;
     margin-right: -60px;
@@ -265,16 +274,18 @@ textarea::placeholder {
 }
 
 .return {
+    z-index: 0;
     border-radius: 10px;
     background-color:rgb(27, 27, 27);
     height: 25vh;
     width: 90%;
+    overflow: hidden;
     overflow-y: auto;
-    overflow-x: visible;
 }
 
 .returned {
-    overflow-x: visible;
+    z-index: 0;
+    overflow: hidden;
     flex-wrap: wrap;
 }
 
