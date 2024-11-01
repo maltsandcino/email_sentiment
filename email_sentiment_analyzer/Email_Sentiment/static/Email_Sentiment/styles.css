@@ -2,10 +2,11 @@
 .analysedSpan {
     
     position: relative;
-    display: inline-block;
+    display: inline;
     border: 1px dotted black;
     white-space: normal;
     width: fit-content;
+    margin-bottom: 5px;
     
 }
 
@@ -17,30 +18,6 @@
     z-index: 2;
 }
       
-.analysedSpan .hide {
-    overflow: hidden;
-    white-space: pre-wrap;
-    position: absolute;
-    display: flex;
-    visibility: hidden;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-top: 10px;
-    width: 200px;
-    max-width: 200px;
-    height: fit-content;
-    overflow: auto;
-    background-color: rgb(35, 58, 77);
-    color: whitesmoke;
-    text-align: left;
-    border: 1px solid grey;
-    border-radius: 6px;    
-    z-index: 2;
-    top: 100%;
-    left: 20%;
-    margin-right: -60px;
-}
 
 .analysedSpan:hover .hide {
     visibility: visible;
@@ -63,6 +40,7 @@
 }
 
 .Sarcastic {
+    text-underline-offset: 7px;
     text-decoration-line: underline;
     text-decoration-color: red;  
     text-decoration-style: wavy;  
@@ -267,6 +245,7 @@ textarea {
     width: 90%;
     outline: none;
     border: none;
+    resize: none;
 }
 
 textarea::placeholder {
@@ -274,6 +253,7 @@ textarea::placeholder {
 }
 
 .return {
+    line-height: 1.9;
     z-index: 0;
     border-radius: 10px;
     background-color:rgb(27, 27, 27);

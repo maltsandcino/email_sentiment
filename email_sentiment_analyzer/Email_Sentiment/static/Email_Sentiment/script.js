@@ -47,7 +47,8 @@ async function submit_data(){
             if(value[1] === "Sarcastic"){
                 sarcastic_note = "Yes"
             }
-            span.innerHTML += `<span class="hide"><p>Sentiment: ${value[2]}</p><p>Sarcastic: ${sarcastic_note}</p></span>`
+            span.setAttribute("title", `Sentiment: ${value[2]} Sarcastic: ${sarcastic_note}`)
+            // += `<span class="hide"><p>Sentiment: ${value[2]}</p><p>Sarcastic: ${sarcastic_note}</p></span>` 
             console.log(value[1]);
             span.classList.add(value[0], value[1], "analysedSpan");
             // hoverspan.classList.add("hide");
