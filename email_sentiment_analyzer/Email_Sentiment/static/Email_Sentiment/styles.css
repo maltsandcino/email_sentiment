@@ -1,6 +1,6 @@
 
 .analysedSpan {
-    
+    word-break: break-all;
     position: relative;
     display: inline;
     border: 1px dotted black;
@@ -183,6 +183,8 @@
 }
 
 body {
+    height: 100vh;
+    background: radial-gradient(circle 150vh at top right, #001316, #212529);
     box-sizing: border-box;
 }
 
@@ -192,6 +194,8 @@ h1 {
 
 div {
     /* border: 1px solid red; */
+    
+    
 }
 
 .center {
@@ -212,6 +216,7 @@ div {
 }
 
 .outputRankings {
+    filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.664));
     margin-top: 5vh;
     display: flex;
     flex-direction: column;
@@ -222,10 +227,35 @@ div {
     height: 60vh;
     width: 3%;
     border-radius: 10px;
-    background-color:rgb(80, 80, 80, 0.5)
+    background-color:rgba(41, 41, 41)
+}
+
+.shad {
+    filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.664));
+}
+
+button {
+    background-color:#3c434b;
+    color:rgb(177, 177, 177);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+}
+
+button:active {
+    /* transform: translateY(2px);
+    transform: rotateZ(-0.05turn); */
+    transform: scaleX(1.1);
+    background-color: rgb(177, 177, 177);
+    color: #3c434b;
+    outline: none;
+    border: none;
+    border-radius: 5px;
 }
 
 .container {
+    
     display: flex;
     flex-direction: column;
     flex: auto;
@@ -235,7 +265,7 @@ div {
     height: 60vh;
     width: 55vw;
     border-radius: 10px;
-    background-color:rgb(80, 80, 80, 0.5)
+    background-color:rgba(41, 41, 41)
 }
 
 textarea {
@@ -283,6 +313,7 @@ textarea::placeholder {
 }
 
 .legend {
+    filter: drop-shadow(10px 10px rgba(0, 0, 0, 0.664));
     display: flex;
     flex-direction: column;
     flex: auto;
@@ -292,7 +323,7 @@ textarea::placeholder {
     height: 15vh;
     width: 55vw;
     border-radius: 10px;
-    background-color:rgb(80, 80, 80, 0.5)
+    background-color:rgba(41, 41, 41)
 }
 
 .legendbar {
